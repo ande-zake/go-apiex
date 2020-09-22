@@ -27,21 +27,21 @@ Configurasi Golang with Apache
 - file ada di go-apiex-prod/server-103.82.241.60/etc/httpd/conf.d/golang.conf
 - restart -> sudo systemctl restart httpd
 
-2. membuat service agar aktif pada session2 berikutnya. *MASIH GAGAL*
-a. misal file binary golang ada pada -> ~/golang/go-apiex/fullstack (fullstack nama binary)
-b. membuat service -> misal namanya go-apiex.service
-	sudo nano /etc/systemd/system/go-apiex.service
-c. copas script dibawah
+2. membuat service agar aktif pada session2 berikutnya. *MASIH GAGAL*  
+  a. misal file binary golang ada pada -> ~/golang/go-apiex/fullstack (fullstack nama binary)
+  b. membuat service -> misal namanya go-apiex.service
+	  sudo nano /etc/systemd/system/go-apiex.service
+  c. copas script dibawah
 	
-Description= instance to serve go-apiex api
-After=network.target
+  Description= instance to serve go-apiex api
+  After=network.target
 
-[Service]
-User=root
-Group=www-data
-ExecStart=/root/golang/go-apiex/fullstack
-[Install]
-WantedBy=multi-user.target
+  [Service]
+  User=root
+  Group=www-data
+  ExecStart=/root/golang/go-apiex/fullstack
+  [Install]
+  WantedBy=multi-user.target
 
 d. reload daemon
 	sudo systemctl daemon-reaload
